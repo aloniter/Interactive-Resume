@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume - Alon Iter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <audio id="cheerAudio" src="cheering.mp3"></audio>
+    <header>
+        <img src="profile.png" alt="Profile picture of Alon Iter" class="profile-pic">
+        <div class="header-content">
+            <h1>Alon Iter</h1>
+            <p>Information Systems Graduate with Specialization in Cybersecurity</p>
+            <p>Tel-Aviv | <a href="tel:0544288272">0544288272</a> | <a href="mailto:aloniter99@gmail.com">aloniter99@gmail.com</a></p>
+            <p><a href="https://www.linkedin.com/in/aloniter/">LinkedIn</a> | <a href="https://github.com/aloniter">GitHub</a></p>
+        </div>
+    </header>
+    <section id="recruiter-interaction">
+        <h2>Welcome!</h2>
+        <p>Enter your name for to improve your day :)</p>
+        <input type="text" id="recruiterName" placeholder="Your Name">
+        <button onclick="displayGreeting()">Submit</button>
+        <p id="greetingMessage"></p>
+    </section>
+    <nav>
+        <ul>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#languages">Languages</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#minigame">Mini-Game</a></li>
+        </ul>
+    </nav>
+    <section id="summary">
+        <h2>Summary</h2>
+        <p>Highly driven and dedicated Information Systems graduate with a specialization in cybersecurity and extensive experience in data reporting and financial analysis.<br>
+        Proven ability to manage and optimize information technology infrastructure and deliver accurate analytics.<br> Detail-oriented problem solver with strong analytical skills and the ability to thrive in fast-paced environments.<br> Fluent in English and Hebrew.<br></p>
+    </section>
+    <section id="education">
+        <h2>Education</h2>
+        <p><strong>B.Sc - Information System</strong>, The Academic College of Tel Aviv-Yaffo,<p> Graduated: July 2024</p>
+        <p>Specialization in Cyber Security</p>
+    </section>
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div>
+            <h3>IT Specialist, Iter Engineering and Project Management, Israel <span class="glow-icon">💻</span></h3>
+            <p>2022 – Present</p>
+            <ul>
+                <li>Processed and analyzed financial reports to optimize IT expenditures.</li>
+                <li>Managed the company's information technology infrastructure ensuring smooth operation.</li>
+                <li>Presented technical findings to management and provided actionable recommendations.</li>
+                <li>Stayed updated with emerging technologies and industry trends to enhance productivity and innovation.</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Bar Manager, Alibi, Tel Aviv <span class="bounce-icon">🍸</span></h3>
+            <p>2019 - 2021</p>
+            <ul>
+                <li>Trained and managed employees, enhancing operational efficiency.</li>
+                <li>Conducted financial performance analysis and maintained accurate inventory records.</li>
+                <li>Communicated with customers in both English and Hebrew, ensuring excellent service.</li>
+                <li>Demonstrated strong problem-solving skills and independent decision-making.</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Paratrooper Sniper, Israeli Defense Forces <span class="paratrooper-icon">🪂</span></h3>
+            <p>2013 - 2016</p>
+            <ul>
+                <li>Completed rigorous training in marksmanship, combat tactics, and physical fitness.</li>
+                <li>Developed strong leadership and teamwork skills through serving in a special forces unit.</li>
+                <li>Demonstrated exceptional discipline and attention to detail in high-pressure situations.</li>
+                <li>Part of an elite combat unit.</li>
+            </ul>
+        </div>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div>
+            <h3>Gaming Projects on GitHub</h3>
+            <ul>
+                <li>Developed several games using HTML, CSS, and JavaScript.</li>
+                <li>Projects include board games and interactive game features, showcasing programming and game development skills.</li>
+                <li><a href="https://github.com/aloniter">GitHub Profile</a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Programming languages: C++, Java, Python</li>
+            <li>Database management: Advanced MySQL</li>
+            <li>Office Software: Advanced Excel (vlookup, pivot tables)</li>
+            <li>Attributes: Detail-oriented, problem-solver, team player, adaptable to fast-paced work environments</li>
+        </ul>
+    </section>
+    <section id="languages">
+        <h2>Languages</h2>
+        <ul>
+            <li>Hebrew - Mother Tongue</li>
+            <li>English - Fluent</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:aloniter99@gmail.com">aloniter99@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/aloniter/">linkedin.com/in/aloniter</a></p>
+        <p>GitHub: <a href="https://github.com/aloniter">github.com/aloniter</a></p>
+    </section>
+    <section id="minigame">
+        <h2>Mini-Game</h2>
+        <div class="game-container">
+            <canvas id="gameCanvas"></canvas>
+            <button onclick="startGame()">Start Game</button>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
