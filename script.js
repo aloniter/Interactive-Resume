@@ -12,8 +12,7 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
 function startGame() {
     const canvas = document.getElementById('gameCanvas'); // Get the canvas element
     const context = canvas.getContext('2d'); // Get the drawing context for the canvas
-    canvas.width = window.innerWidth < 400 ? window.innerWidth : 400; // Set canvas width
-    canvas.height = window.innerHeight < 300 ? window.innerHeight : 300; // Set canvas height
+    resizeCanvas(); // Set initial canvas size based on screen size
 
     let x = canvas.width / 2; // Initial x position of the ball
     let y = canvas.height - 30; // Initial y position of the ball
@@ -22,7 +21,7 @@ function startGame() {
     const ballRadius = 10; // Radius of the ball
 
     const paddleHeight = 10; // Height of the paddle
-    const paddleWidth = 75; // Width of the paddle
+    let paddleWidth = canvas.width / 5; // Width of the paddle, adjustable based on canvas width
     let paddleX = (canvas.width - paddleWidth) / 2; // Initial x position of the paddle
 
     let rightPressed = false; // Flag for right arrow key press
@@ -40,6 +39,9 @@ function startGame() {
     canvas.addEventListener('touchstart', touchStartHandler, { passive: false });
     canvas.addEventListener('touchmove', touchMoveHandler, { passive: false });
     canvas.addEventListener('touchend', touchEndHandler, false);
+
+    // Event listener for window resize to adjust canvas size
+    window.addEventListener('resize', resizeCanvas, false);
 
     // Handler for key down events
     function keyDownHandler(e) {
@@ -71,11 +73,11 @@ function startGame() {
         touchEndX = e.touches[0].clientX; // Get touch end x position
         let touchMoveDistance = touchEndX - touchStartX; // Calculate distance moved by touch
 
-        // Move paddle based on touch move distance
+        // Move paddle based on touch move distance with increased speed
         if (touchMoveDistance > 0 && paddleX < canvas.width - paddleWidth) {
-            paddleX += Math.min(7, touchMoveDistance);
+            paddleX += Math.min(14, touchMoveDistance);
         } else if (touchMoveDistance < 0 && paddleX > 0) {
-            paddleX += Math.max(-7, touchMoveDistance);
+            paddleX += Math.max(-14, touchMoveDistance);
         }
 
         touchStartX = touchEndX; // Update touch start x position
@@ -86,6 +88,14 @@ function startGame() {
         e.preventDefault(); // Prevent default touch behavior
         touchStartX = 0; // Reset touch start x position
         touchEndX = 0; // Reset touch end x position
+    }
+
+    // Function to resize the canvas based on screen size
+    function resizeCanvas() {
+        canvas.width = window.innerWidth * 0.9; // Set canvas width to 90% of window width
+        canvas.height = window.innerHeight * 0.7; // Set canvas height to 70% of window height
+        paddleWidth = canvas.width / 5; // Adjust paddle width based on canvas width
+        paddleX = (canvas.width - paddleWidth) / 2; // Reset paddle position
     }
 
     // Function to draw the ball
